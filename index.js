@@ -55,6 +55,6 @@ client.on('messageCreate', async (message) => {
 });
 
 module.exports = async (req, res) => {
-  await client.login('MTE2ODE2NDMzNzA3MzAxNjkwMg.G4ToOu.YEyUz3lqQPPw2CVOT_cAikf_wW79A1bNpEWeuw');
+  await client.login('MTEyNDk3MjQ2OTQwOTgxMjUyMA.GyD1lf.D2axfpKu_Cs9IzTTFQ5_JghyQUnrWSWVBADyWw');
   res.status(200).send('Bot is running!');
 };
