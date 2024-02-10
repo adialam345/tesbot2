@@ -14,6 +14,28 @@ const API_KEY = 'da2-e3ybp4cw2vgdlgmie3byhf4ohe';
 const GRAPHQL_URL = 'https://xzqpphzvbzhzvpke6ojjzvbpjq.appsync-api.ap-southeast-1.amazonaws.com/graphql';
 const channelId = '1205841803623006208';
 
+const graphqlQuery = `
+  query MessagesByUpdateAt {
+    messagesByUpdateAt(type: "message", sortDirection: DESC, limit: 2000) {
+      items {
+        id
+        message
+        channelId
+        createdAt
+        updatedAt
+        userMessagesId
+        type
+        author {
+          givenName
+          familyName
+          nickname
+          profileImage
+        }
+      }
+    }
+  }
+`;
+
 client.on('messageCreate', async (message) => {
   if (message.content === '!fetchData') {
     try {
@@ -55,6 +77,6 @@ client.on('messageCreate', async (message) => {
 });
 
 module.exports = async (req, res) => {
-  await client.login('MTEyNDk3MjQ2OTQwOTgxMjUyMA.GNrf--.znpPDF9Qxi9RkaGxOhPfILMAgZV6E7gfvbZu2Q');
+  await client.login('MTEyNDk3MjQ2OTQwOTgxMjUyMA.GNrf--.znpPDF9Qxi9RkaGxOhPfILMAgZV6E7gfvbZu2QYOUR_BOT_TOKEN');
   res.status(200).send('Bot is running!');
 };
